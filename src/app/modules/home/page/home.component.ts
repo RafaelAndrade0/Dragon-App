@@ -11,8 +11,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('teste');
-    this.dragonService.listDragons().subscribe((dragon) => {
-      console.log(dragon);
+    this.dragonService.listDragons().subscribe((dragons) => {
+      console.log(dragons);
     });
   }
 }

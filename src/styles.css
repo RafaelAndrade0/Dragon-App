@@ -72,6 +72,10 @@ ul {
   color: #dc3545;
 }
 
+.text-light {
+  color: rgb(233, 233, 233);
+}
+
 .text-center {
   text-align: center;
 }

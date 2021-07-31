@@ -19,6 +19,9 @@ export class DragonService {
   });
   $selectedDragon = this._selectedDragon.asObservable();
 
+  private _editDragon = new BehaviorSubject<boolean>(false);
+  $editDragon = this._editDragon.asObservable();
+
   listDragons(): Observable<Dragon[]> {
     return this.http
       .get<Dragon[]>('/dragon')
@@ -34,5 +37,9 @@ export class DragonService {
   setSelectedDragon(dragon: Dragon) {
     console.log(dragon);
     this._selectedDragon.next(dragon);
+  }
+
+  setEditDragon(status: boolean) {
+    this._editDragon.next(status);
   }
 }

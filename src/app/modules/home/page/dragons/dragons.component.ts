@@ -9,8 +9,6 @@ import { Dragon } from 'src/app/data/types/dragon';
   styleUrls: ['./dragons.component.css'],
 })
 export class DragonsComponent implements OnInit {
-  public dragons: Dragon[] = [];
-
   constructor(
     private dragonService: DragonService,
     private router: Router,
@@ -20,6 +18,9 @@ export class DragonsComponent implements OnInit {
       .listDragons()
       .subscribe((dragons) => (this.dragons = dragons));
   }
+
+  public dragons: Dragon[] = [];
+  public $showEditDragon = this.dragonService.$editDragon;
 
   ngOnInit(): void {}
 

@@ -1,0 +1,31 @@
+<div class="card card-bg-on text-dark">
+  <form #f="ngForm" (ngSubmit)="editDragon(f.value)">
+    <h1>Edit Dragon</h1>
+    <input
+      type="text"
+      placeholder="Type the dragon name..."
+      name="name"
+      required
+      [(ngModel)]="selectedDragon.name"
+    />
+    <input
+      type="text"
+      placeholder="Type the dragon type..."
+      name="type"
+      required
+      [(ngModel)]="selectedDragon.type"
+    />
+    <textarea
+      type="text"
+      placeholder="Type the dragon histories..."
+      name="histories"
+      required
+      [(ngModel)]="selectedDragon.histories"
+    >
+    </textarea>
+    <button (click)="cancelEdit()" type="button" class="btn btn-light">
+      Cancel
+    </button>
+    <button type="submit" class="btn btn-primary">Edit</button>
+  </form>
+</div>

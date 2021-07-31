@@ -31,4 +31,9 @@ export class DragonCardComponent implements OnInit {
       relativeTo: this.route,
     });
   }
+
+  showEditCard() {
+    this.dragonService.setSelectedDragon(this.dragon);
+    this.dragonService.setEditDragon(true);
+  }
 }

@@ -1,8 +1,15 @@
 <div>
-  <button (click)="addDragon()" class="btn btn-light btn-block">
+  <button (click)="addDragon()" class="btn btn-success btn-block">
     Add Dragon
   </button>
 </div>
+
+<ng-container *ngIf="$showEditDragon | async as showEditDragon">
+  <div *ngIf="showEditDragon">
+    <app-edit-dragon></app-edit-dragon>
+  </div>
+</ng-container>
+
 <div class="grid-3">
   <ng-container *ngFor="let dragon of dragons">
     <app-dragon-card [dragon]="dragon"></app-dragon-card>

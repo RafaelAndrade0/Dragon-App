@@ -5,9 +5,11 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './page/home.component';
 import { DragonsComponent } from './page/dragons/dragons.component';
 import { DragonCardComponent } from './page/dragon-card/dragon-card.component';
+import { FormsModule } from '@angular/forms';
+import { EditDragonComponent } from './page/edit-dragon/edit-dragon.component';
 
 @NgModule({
-  declarations: [HomeComponent, DragonsComponent, DragonCardComponent],
-  imports: [CommonModule, HomeRoutingModule],
+  declarations: [HomeComponent, DragonsComponent, DragonCardComponent, EditDragonComponent],
+  imports: [CommonModule, HomeRoutingModule, FormsModule],
 })
 export class HomeModule {}

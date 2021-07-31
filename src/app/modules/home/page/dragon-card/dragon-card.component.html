@@ -7,12 +7,12 @@
   />
   <h3>@{{ dragon.name }}</h3>
   <div class="grid-2 m-1">
-    <span class="btn btn-dark">Edit</span>
+    <span (click)="showEditCard()" class="btn btn-light">Edit</span>
     <span class="btn btn-danger">Delete</span>
   </div>
 
   <div>
-    <span (click)="goToDetailsDragon()" class="btn btn-light btn-block"
+    <span (click)="goToDetailsDragon()" class="btn btn-success btn-block"
       >Details</span
     >
   </div>

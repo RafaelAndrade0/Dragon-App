@@ -15,6 +15,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/home/home.module').then((m) => m.HomeModule),
   },
+  {
+    path: 'add-dragon',
+    loadChildren: () =>
+      import('./modules/add-dragon/add-dragon.module').then(
+        (m) => m.AddDragonModule
+      ),
+  },
 ];
 
 @NgModule({

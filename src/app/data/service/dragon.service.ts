@@ -12,4 +12,8 @@ export class DragonService {
   listDragons(): Observable<Dragon[]> {
     return this.http.get<Dragon[]>('/dragon');
   }
+
+  addDragon(dragon: Dragon) {
+    return this.http.post('/dragon', dragon);
+  }
 }

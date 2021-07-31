@@ -316,7 +316,8 @@ ul {
 }
 
 /* Forms */
-input {
+input,
+textarea {
   margin: 1.2rem 0;
   border-radius: 10px;
 }
@@ -349,16 +350,6 @@ input[type="text"]:focus {
   border: 1px solid #383838;
 }
 
-table th,
-table td {
-  padding: 1rem;
-  text-align: left;
-}
-
-table th {
-  background: #f4f4f4;
-}
-
 /* Navbar */
 .navbar {
   display: flex;
@@ -387,12 +378,6 @@ table th {
 
 .navbar .welcome span {
   margin-right: 0.6rem;
-}
-
-.loader {
-  height: 5px;
-  width: 100%;
-  overflow: hidden;
 }
 
 /* Mobile Styles */

@@ -1,0 +1,24 @@
+<div class="container text-center">
+  <img
+    src="assets/images/dragon-logo.jpg"
+    alt="dragon logo"
+    class="img-responsive"
+  />
+  <form #f="ngForm" (ngSubmit)="submit(f.value)">
+    <input
+      type="text"
+      placeholder="Type your username..."
+      name="username"
+      required
+      ngModel
+    />
+    <input
+      type="password"
+      placeholder="Type your password..."
+      name="password"
+      required
+      ngModel
+    />
+    <input type="submit" value="Login!" class="btn btn-primary btn-block" />
+  </form>
+</div>

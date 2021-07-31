@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Dragon } from '../types/dragon';
 
 @Injectable({
@@ -9,11 +10,29 @@ import { Dragon } from '../types/dragon';
 export class DragonService {
   constructor(private http: HttpClient) {}
 
+  private _selectedDragon = new BehaviorSubject<Dragon>({
+    id: '',
+    name: '',
+    type: '',
+    histories: '',
+    createdAt: new Date(),
+  });
+  $selectedDragon = this._selectedDragon.asObservable();
+
   listDragons(): Observable<Dragon[]> {
-    return this.http.get<Dragon[]>('/dragon');
+    return this.http
+      .get<Dragon[]>('/dragon')
+      .pipe(
+        map((dragons) => dragons.sort((a, b) => (a.name > b.name ? 1 : -1)))
+      );
   }
 
-  addDragon(dragon: Dragon) {
-    return this.http.post('/dragon', dragon);
+  addDragon(dragon: Dragon): Observable<Dragon> {
+    return this.http.post<Dragon>('/dragon', dragon);
+  }
+
+  setSelectedDragon(dragon: Dragon) {
+    console.log(dragon);
+    this._selectedDragon.next(dragon);
   }
 }

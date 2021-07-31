@@ -6,10 +6,14 @@
     style="width: 60px"
   />
   <h3>@{{ dragon.name }}</h3>
-  <p>{{ dragon.histories }}</p>
-  <span class="badge">{{ dragon.type }}</span>
   <div class="grid-2 m-1">
-    <span class="btn btn-dark">Editar</span>
-    <span class="btn btn-danger">Deletar</span>
+    <span class="btn btn-dark">Edit</span>
+    <span class="btn btn-danger">Delete</span>
+  </div>
+
+  <div>
+    <span (click)="goToDetailsDragon()" class="btn btn-light btn-block"
+      >Details</span
+    >
   </div>
 </div>

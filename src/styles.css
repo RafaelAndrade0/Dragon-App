@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap");
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,7 +6,7 @@
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 1rem;
   line-height: 1.6;
   background-color: #003612;
@@ -97,9 +98,12 @@ ul {
 /* Cards */
 .card {
   padding: 1rem;
-  /* background-color: #eeeeee; */
-  border: rgb(194, 194, 194) 2px solid;
+  border: rgb(194, 194, 194) 1px solid;
   margin: 0.7rem 0;
+}
+
+.card-bg-on {
+  background-color: #eeeeee;
 }
 
 .grow {

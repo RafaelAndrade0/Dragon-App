@@ -22,6 +22,13 @@ const routes: Routes = [
         (m) => m.AddDragonModule
       ),
   },
+  {
+    path: 'details-dragon/:id',
+    loadChildren: () =>
+      import('./modules/details-dragon/details-dragon.module').then(
+        (m) => m.DetailsDragonModule
+      ),
+  },
 ];
 
 @NgModule({

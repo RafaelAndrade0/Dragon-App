@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DragonService } from 'src/app/data/service/dragon.service';
 import { Dragon } from 'src/app/data/types/dragon';
 
 @Component({
@@ -15,7 +17,18 @@ export class DragonCardComponent implements OnInit {
     createdAt: new Date(),
   };
 
-  constructor() {}
+  constructor(
+    private dragonService: DragonService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {}
+
+  goToDetailsDragon() {
+    this.dragonService.setSelectedDragon(this.dragon);
+    this.router.navigate([`../details-dragon/${this.dragon.id}`], {
+      relativeTo: this.route,
+    });
+  }
 }

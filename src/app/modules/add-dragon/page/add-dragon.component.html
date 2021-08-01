@@ -8,22 +8,43 @@
       name="name"
       required
       ngModel
+      #name="ngModel"
     />
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+      Name is required
+    </div>
     <input
       type="text"
       placeholder="Type the dragon type..."
       name="type"
       required
       ngModel
+      #type="ngModel"
     />
+    <div [hidden]="type.valid || type.pristine" class="alert alert-danger">
+      Type is required
+    </div>
     <textarea
       type="text"
       placeholder="Type the dragon histories..."
       name="histories"
       required
       ngModel
+      #histories="ngModel"
     >
     </textarea>
-    <input type="submit" value="ADD!" class="btn btn-primary btn-block" />
+    <div
+      [hidden]="histories.valid || histories.pristine"
+      class="alert alert-danger"
+    >
+      Histories is required
+    </div>
+    <button
+      [disabled]="!f.form.valid"
+      type="submit"
+      class="btn btn-primary btn-block"
+    >
+      Add!
+    </button>
   </form>
 </div>

@@ -7,14 +7,34 @@
       name="username"
       required
       ngModel
+      #username="ngModel"
     />
+    <div
+      [hidden]="username.valid || username.pristine"
+      class="alert alert-danger"
+    >
+      Username is required
+    </div>
     <input
       type="password"
       placeholder="Type your password..."
       name="password"
       required
       ngModel
+      #password="ngModel"
     />
-    <input type="submit" value="Login!" class="btn btn-primary btn-block" />
+    <div
+      [hidden]="password.valid || password.pristine"
+      class="alert alert-danger"
+    >
+      Password is required
+    </div>
+    <button
+      [disabled]="!f.form.valid"
+      type="submit"
+      class="btn btn-primary btn-block"
+    >
+      Login!
+    </button>
   </form>
 </div>

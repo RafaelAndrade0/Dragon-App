@@ -350,6 +350,12 @@ input[type="text"]:focus {
   border: 1px solid #383838;
 }
 
+button:disabled,
+input[type="submit"] {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
 /* Navbar */
 .navbar {
   display: flex;

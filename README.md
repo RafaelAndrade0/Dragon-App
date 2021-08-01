@@ -1,27 +1,61 @@
-# DragonApp
+<p align="center">
+  <a href="" rel="noopener">
+ <img src="https://user-images.githubusercontent.com/30444471/127786069-55251068-6c85-4a4a-8d3d-3aeea343ad7d.png" alt="Logo do Projeto"></a>
+</p>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.4.
+<h3 align="center">Dragon app</h3>
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+<p align="center"> Crud simples feito em Angular.
+    <br> 
+</p>
+<p align="center">
+  A versão online do projeto esta disponível <a href="https://dragon-app.vercel.app">aqui!</a>
+</p>
 
-## Code scaffolding
+## 📝 Índice
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- [Sobre](#sobre)
+- [Primeiros Passos](#primeiros_passos)
+- [Feito Com](#feito_com)
+- [Autores](#autores)
 
-## Build
+## 🧐 Sobre <a name = "sobre"></a>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Projeto simples para utilizar a api de dragões. Implementa boa parte dos principais conceitos do desenvolvimento com Angular.
 
-## Running unit tests
+Login para testes:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+Username: shenlong
+Senha: 12345
+```
 
-## Running end-to-end tests
+## 🏁 Primeiros Passos <a name = "primeiros_passos"></a>
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Estas intruçōes te darão uma cópia funcional do projeto na sua máquina local para desenvolvimento e testes.
 
-## Further help
+### Instalação
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Para rodar o app basta clonar o projeto e executar
+
+```
+NPM INSTALL
+```
+
+```
+NG SERVE
+```
+
+Outras dúvidas podem ser sanadas pelo site oficial do [Angular CLI.](https://cli.angular.io/)
+
+## ⛏️ Feito Com <a name = "feito_com"></a>
+
+- [Angular](https://angular.io/) - Web Framework
+- [Typescript](https://www.typescriptlang.org/) - Javascript Superset
+- [RxJS](https://rxjs-dev.firebaseapp.com/) - Reactive Programming
+
+## ✍️ Autores <a name = "autores"></a>
+
+- [@RafaelAndrade0](https://github.com/RafaelAndrade0) - Ideia & Trabalho inicial

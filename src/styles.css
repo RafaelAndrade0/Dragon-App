@@ -114,23 +114,6 @@ ul {
   background-color: #ff9e9e;
 }
 
-.grow {
-  transition: all 0.2s ease-in-out;
-}
-
-.grow:hover {
-  transform: scale(1.1);
-}
-
-/* List */
-.list {
-  margin: 0.5rem 0;
-}
-
-.list li {
-  padding-bottom: 0.3rem;
-}
-
 /* Padding */
 .p {
   padding: 0.5rem;
@@ -325,6 +308,10 @@ ul {
 
 .round-img {
   border-radius: 50%;
+}
+
+.border-dotted-img {
+  border: 3px dotted rgb(201, 201, 201);
 }
 
 /* Forms */

@@ -8,13 +8,10 @@
       required
       [ngModel]="selectedDragon.name"
       ngModel
-      #username="ngModel"
+      #name="ngModel"
     />
-    <div
-      [hidden]="username.valid || username.pristine"
-      class="alert alert-danger"
-    >
-      Username is required
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+      Name is required
     </div>
     <input
       type="text"

@@ -39,7 +39,7 @@ export class DragonCardComponent implements OnInit {
   }
 
   showDeletedCard() {
-    this.dragonService.setSelectedDragon(this.dragon);
+    this.dragonService.setSelectedDragonToDelete(this.dragon);
     this.dragonService.setShowDeleteDragon(true);
     scrollTo(0, 0);
   }

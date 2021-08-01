@@ -28,16 +28,35 @@ export class DragonsComponent implements OnInit, OnDestroy {
     histories: '',
     createdAt: new Date(),
   };
+  public selectedDragonToDelete: Dragon = {
+    id: '1',
+    name: '',
+    type: '',
+    histories: '',
+    createdAt: new Date(),
+  };
   public subscription = new Subscription();
 
-  ngOnInit(): void {
+  initObservables() {
     this.dragonService
       .listDragons()
       .subscribe((dragons) => (this.dragons = dragons));
 
-    this.subscription = this.dragonService.$selectedDragon.subscribe(
-      (dragon) => (this.selectedDragon = dragon)
+    this.subscription.add(
+      this.dragonService.$selectedDragon.subscribe(
+        (dragon) => (this.selectedDragon = dragon)
+      )
     );
+
+    this.subscription.add(
+      this.dragonService.$selectedDragonToDelete.subscribe(
+        (dragon) => (this.selectedDragonToDelete = dragon)
+      )
+    );
+  }
+
+  ngOnInit(): void {
+    this.initObservables();
   }
 
   ngOnDestroy() {

@@ -1,6 +1,6 @@
 <div class="card card-bg-on text-dark">
   <form #f="ngForm" (ngSubmit)="editDragon(f.value)">
-    <h1>Edit Dragon</h1>
+    <h1>Edit Dragon {{ selectedDragon.name }}</h1>
     <input
       type="text"
       placeholder="Type the dragon name..."

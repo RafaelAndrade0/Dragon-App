@@ -7,7 +7,7 @@
 <ng-container *ngIf="$showDeleteDragon | async as showDeleteDragon">
   <div *ngIf="showDeleteDragon">
     <app-delete-dragon
-      [selectedDragon]="selectedDragon"
+      [selectedDragon]="selectedDragonToDelete"
       (deleteDragonEmitter)="deleteDragon()"
     ></app-delete-dragon>
   </div>

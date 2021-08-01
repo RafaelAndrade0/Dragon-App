@@ -19,6 +19,15 @@ export class DragonService {
   });
   $selectedDragon = this._selectedDragon.asObservable();
 
+  private _selectedDragonToDelete = new BehaviorSubject<Dragon>({
+    id: '',
+    name: '',
+    type: '',
+    histories: '',
+    createdAt: new Date(),
+  });
+  $selectedDragonToDelete = this._selectedDragonToDelete.asObservable();
+
   private _showEditDragonForm = new BehaviorSubject<boolean>(false);
   $showEditDragonForm = this._showEditDragonForm.asObservable();
 
@@ -42,15 +51,19 @@ export class DragonService {
   }
 
   editDragon(dragon: Dragon): Observable<Dragon> {
-    return this.http.put<Dragon>(`dragon/${dragon.id}`, dragon);
+    return this.http.put<Dragon>(`/dragon/${dragon.id}`, dragon);
   }
 
   deleteDragon(id: string): Observable<Dragon> {
-    return this.http.delete<Dragon>(`dragon/${id}`);
+    return this.http.delete<Dragon>(`/dragon/${id}`);
   }
 
   setSelectedDragon(dragon: Dragon) {
     this._selectedDragon.next(dragon);
+  }
+
+  setSelectedDragonToDelete(dragon: Dragon) {
+    this._selectedDragonToDelete.next(dragon);
   }
 
   setShowEditDragonForm(status: boolean) {

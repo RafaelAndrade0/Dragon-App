@@ -4,8 +4,8 @@
   </button>
 </div>
 
-<ng-container *ngIf="$showEditDragon | async as showEditDragon">
-  <div *ngIf="showEditDragon">
+<ng-container *ngIf="$showEditDragonForm | async as showEditDragonForm">
+  <div *ngIf="showEditDragonForm">
     <app-edit-dragon (editDragonEmitter)="editDragon($event)"></app-edit-dragon>
   </div>
 </ng-container>

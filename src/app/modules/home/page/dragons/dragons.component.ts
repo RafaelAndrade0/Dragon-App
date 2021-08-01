@@ -22,7 +22,7 @@ export class DragonsComponent implements OnInit {
   }
 
   public dragons: Dragon[] = [];
-  public $showEditDragon = this.dragonService.$editDragon;
+  public $showEditDragonForm = this.dragonService.$showEditDragonForm;
 
   ngOnInit(): void {}
 
@@ -35,7 +35,7 @@ export class DragonsComponent implements OnInit {
       (dragon) => {
         console.log(dragon);
         this.editDragonOptimisticUpdate(editedDragon);
-        this.dragonService.setEditDragon(false);
+        this.dragonService.setShowEditDragonForm(false);
       },
       (error) => {
         this.toastr.error(error.message, '😕 Oooppps...!');

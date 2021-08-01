@@ -29,6 +29,7 @@ const routes: Routes = [
         (m) => m.DetailsDragonModule
       ),
   },
+  { path: 'about', loadChildren: () => import('./modules/about/about.module').then(m => m.AboutModule) },
 ];
 
 @NgModule({

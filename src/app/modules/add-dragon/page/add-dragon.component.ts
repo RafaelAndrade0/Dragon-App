@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { DragonService } from 'src/app/data/service/dragon.service';
 import { Dragon } from 'src/app/data/types/dragon';
 
@@ -8,14 +10,25 @@ import { Dragon } from 'src/app/data/types/dragon';
   styleUrls: ['./add-dragon.component.css'],
 })
 export class AddDragonComponent implements OnInit {
-  constructor(private dragonService: DragonService) {}
+  constructor(
+    private dragonService: DragonService,
+    private toastr: ToastrService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {}
 
   submit(dragon: Dragon) {
     console.log(dragon);
-    this.dragonService
-      .addDragon(dragon)
-      .subscribe((dragon) => console.log(dragon));
+    this.dragonService.addDragon(dragon).subscribe(
+      (_) => {
+        this.toastr.success('Dragão adicionado com sucesso!', 'Show! 😄');
+        this.router.navigate(['../home'], { relativeTo: this.route });
+      },
+      (error) => {
+        this.toastr.error(error.message, '😕 Oooppps...!');
+      }
+    );
   }
 }

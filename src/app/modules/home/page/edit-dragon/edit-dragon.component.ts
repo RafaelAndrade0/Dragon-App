@@ -35,6 +35,6 @@ export class EditDragonComponent implements OnInit {
   }
 
   cancelEdit() {
-    this.dragonService.setEditDragon(false);
+    this.dragonService.setShowEditDragonForm(false);
   }
 }

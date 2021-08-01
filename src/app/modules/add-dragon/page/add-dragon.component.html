@@ -1,27 +1,29 @@
-<h1>New Dragon</h1>
+<div class="card card-bg-on text-dark">
+  <h1>New Dragon</h1>
 
-<form #f="ngForm" (ngSubmit)="submit(f.value)">
-  <input
-    type="text"
-    placeholder="Type the dragon name..."
-    name="name"
-    required
-    ngModel
-  />
-  <input
-    type="text"
-    placeholder="Type the dragon type..."
-    name="type"
-    required
-    ngModel
-  />
-  <textarea
-    type="text"
-    placeholder="Type the dragon histories..."
-    name="histories"
-    required
-    ngModel
-  >
-  </textarea>
-  <input type="submit" value="ADD!" class="btn btn-primary btn-block" />
-</form>
+  <form #f="ngForm" (ngSubmit)="submit(f.value)">
+    <input
+      type="text"
+      placeholder="Type the dragon name..."
+      name="name"
+      required
+      ngModel
+    />
+    <input
+      type="text"
+      placeholder="Type the dragon type..."
+      name="type"
+      required
+      ngModel
+    />
+    <textarea
+      type="text"
+      placeholder="Type the dragon histories..."
+      name="histories"
+      required
+      ngModel
+    >
+    </textarea>
+    <input type="submit" value="ADD!" class="btn btn-primary btn-block" />
+  </form>
+</div>

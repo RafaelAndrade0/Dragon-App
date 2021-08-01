@@ -19,8 +19,8 @@ export class DragonService {
   });
   $selectedDragon = this._selectedDragon.asObservable();
 
-  private _editDragon = new BehaviorSubject<boolean>(false);
-  $editDragon = this._editDragon.asObservable();
+  private _showEditDragonForm = new BehaviorSubject<boolean>(false);
+  $showEditDragonForm = this._showEditDragonForm.asObservable();
 
   listDragons(): Observable<Dragon[]> {
     return this.http
@@ -38,12 +38,16 @@ export class DragonService {
     return this.http.put<Dragon>(`dragon/${dragon.id}`, dragon);
   }
 
+  deleteDragon(id: string): Observable<Dragon> {
+    return this.http.delete<Dragon>(`dragon/${id}`);
+  }
+
   setSelectedDragon(dragon: Dragon) {
     console.log(dragon);
     this._selectedDragon.next(dragon);
   }
 
-  setEditDragon(status: boolean) {
-    this._editDragon.next(status);
+  setShowEditDragonForm(status: boolean) {
+    this._showEditDragonForm.next(status);
   }
 }

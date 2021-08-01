@@ -1,4 +1,11 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
+import { Subscription } from 'rxjs';
 import { DragonService } from 'src/app/data/service/dragon.service';
 import { Dragon } from 'src/app/data/types/dragon';
 
@@ -7,10 +14,10 @@ import { Dragon } from 'src/app/data/types/dragon';
   templateUrl: './edit-dragon.component.html',
   styleUrls: ['./edit-dragon.component.css'],
 })
-export class EditDragonComponent implements OnInit {
+export class EditDragonComponent implements OnInit, OnDestroy {
   constructor(private dragonService: DragonService) {}
 
-  selectedDragon: Dragon = {
+  public selectedDragon: Dragon = {
     id: '',
     name: '',
     type: '',
@@ -18,12 +25,20 @@ export class EditDragonComponent implements OnInit {
     createdAt: new Date(),
   };
 
+  public subscription: Subscription = new Subscription();
+
   @Output() editDragonEmitter = new EventEmitter<Dragon>();
 
   ngOnInit(): void {
-    this.dragonService.$selectedDragon.subscribe((dragon) => {
-      this.selectedDragon = dragon;
-    });
+    this.subscription = this.dragonService.$selectedDragon.subscribe(
+      (dragon) => {
+        this.selectedDragon = dragon;
+      }
+    );
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   editDragon(editedDragon: Dragon) {

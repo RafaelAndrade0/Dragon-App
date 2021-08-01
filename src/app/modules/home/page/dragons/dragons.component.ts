@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Subscription } from 'rxjs';
 import { DragonService } from 'src/app/data/service/dragon.service';
 import { Dragon } from 'src/app/data/types/dragon';
 
@@ -9,7 +10,7 @@ import { Dragon } from 'src/app/data/types/dragon';
   templateUrl: './dragons.component.html',
   styleUrls: ['./dragons.component.css'],
 })
-export class DragonsComponent implements OnInit {
+export class DragonsComponent implements OnInit, OnDestroy {
   constructor(
     private dragonService: DragonService,
     private router: Router,
@@ -27,15 +28,20 @@ export class DragonsComponent implements OnInit {
     histories: '',
     createdAt: new Date(),
   };
+  public subscription = new Subscription();
 
   ngOnInit(): void {
     this.dragonService
       .listDragons()
       .subscribe((dragons) => (this.dragons = dragons));
 
-    this.dragonService.$selectedDragon.subscribe(
+    this.subscription = this.dragonService.$selectedDragon.subscribe(
       (dragon) => (this.selectedDragon = dragon)
     );
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   addDragon() {
@@ -45,7 +51,6 @@ export class DragonsComponent implements OnInit {
   editDragon(editedDragon: Dragon) {
     this.dragonService.editDragon(editedDragon).subscribe(
       (dragon) => {
-        console.log(dragon);
         this.editDragonOptimisticUpdate(editedDragon);
         this.dragonService.setShowEditDragonForm(false);
         this.toastr.success('Dragão editado com sucesso!', 'Show! 😄');

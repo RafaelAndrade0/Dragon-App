@@ -7,12 +7,7 @@ import { DragonService } from 'src/app/data/service/dragon.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  constructor(private dragonService: DragonService) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    console.log('teste');
-    this.dragonService.listDragons().subscribe((dragons) => {
-      console.log(dragons);
-    });
-  }
+  ngOnInit(): void {}
 }

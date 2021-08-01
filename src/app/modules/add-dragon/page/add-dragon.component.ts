@@ -20,7 +20,6 @@ export class AddDragonComponent implements OnInit {
   ngOnInit(): void {}
 
   submit(dragon: Dragon) {
-    console.log(dragon);
     this.dragonService.addDragon(dragon).subscribe(
       (_) => {
         this.toastr.success('Dragão adicionado com sucesso!', 'Show! 😄');

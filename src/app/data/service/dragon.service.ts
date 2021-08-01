@@ -46,7 +46,6 @@ export class DragonService {
   }
 
   setSelectedDragon(dragon: Dragon) {
-    console.log(dragon);
     this._selectedDragon.next(dragon);
   }
 

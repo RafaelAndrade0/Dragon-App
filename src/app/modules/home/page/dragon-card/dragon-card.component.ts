@@ -36,4 +36,9 @@ export class DragonCardComponent implements OnInit {
     this.dragonService.setSelectedDragon(this.dragon);
     this.dragonService.setShowEditDragonForm(true);
   }
+
+  showDeletedCard() {
+    this.dragonService.setSelectedDragon(this.dragon);
+    this.dragonService.setShowDeleteDragon(true);
+  }
 }

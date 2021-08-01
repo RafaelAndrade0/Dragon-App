@@ -15,16 +15,28 @@ export class DragonsComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private toastr: ToastrService
-  ) {
-    this.dragonService
-      .listDragons()
-      .subscribe((dragons) => (this.dragons = dragons));
-  }
+  ) {}
 
   public dragons: Dragon[] = [];
   public $showEditDragonForm = this.dragonService.$showEditDragonForm;
+  public $showDeleteDragon = this.dragonService.$showDeleteDragon;
+  public selectedDragon: Dragon = {
+    id: '1',
+    name: '',
+    type: '',
+    histories: '',
+    createdAt: new Date(),
+  };
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.dragonService
+      .listDragons()
+      .subscribe((dragons) => (this.dragons = dragons));
+
+    this.dragonService.$selectedDragon.subscribe(
+      (dragon) => (this.selectedDragon = dragon)
+    );
+  }
 
   addDragon() {
     this.router.navigate(['../add-dragon'], { relativeTo: this.route });
@@ -36,6 +48,20 @@ export class DragonsComponent implements OnInit {
         console.log(dragon);
         this.editDragonOptimisticUpdate(editedDragon);
         this.dragonService.setShowEditDragonForm(false);
+        this.toastr.success('Dragão editado com sucesso!', 'Show! 😄');
+      },
+      (error) => {
+        this.toastr.error(error.message, '😕 Oooppps...!');
+      }
+    );
+  }
+
+  deleteDragon() {
+    this.dragonService.deleteDragon(this.selectedDragon.id).subscribe(
+      (_) => {
+        this.toastr.success('Dragão deletado com sucesso!', 'Show! 😄');
+        this.deleteDragonOptimisticUpdate();
+        this.dragonService.setShowDeleteDragon(false);
       },
       (error) => {
         this.toastr.error(error.message, '😕 Oooppps...!');
@@ -48,5 +74,11 @@ export class DragonsComponent implements OnInit {
       (dragon) => dragon.id === editedDragon.id
     );
     this.dragons[index] = editedDragon;
+  }
+
+  deleteDragonOptimisticUpdate() {
+    this.dragons = this.dragons.filter(
+      (dragon) => dragon.id !== this.selectedDragon.id
+    );
   }
 }

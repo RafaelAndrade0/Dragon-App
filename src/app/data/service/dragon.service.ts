@@ -22,6 +22,9 @@ export class DragonService {
   private _showEditDragonForm = new BehaviorSubject<boolean>(false);
   $showEditDragonForm = this._showEditDragonForm.asObservable();
 
+  private _showDeleteDragon = new BehaviorSubject<boolean>(false);
+  $showDeleteDragon = this._showDeleteDragon.asObservable();
+
   listDragons(): Observable<Dragon[]> {
     return this.http
       .get<Dragon[]>('/dragon')
@@ -49,5 +52,9 @@ export class DragonService {
 
   setShowEditDragonForm(status: boolean) {
     this._showEditDragonForm.next(status);
+  }
+
+  setShowDeleteDragon(status: boolean) {
+    this._showDeleteDragon.next(status);
   }
 }

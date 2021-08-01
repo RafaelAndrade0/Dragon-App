@@ -1,0 +1,7 @@
+<div class="card card-bg-on-danger text-dark">
+  <h2>Tem certeza que deseja deletar o dragão {{ selectedDragon.name }}?</h2>
+  <div class="grid-2 m-1">
+    <span (click)="cancelDelete()" class="btn btn-light">Cancelar</span>
+    <span (click)="deleteDragon()" class="btn btn-danger">Deletar</span>
+  </div>
+</div>

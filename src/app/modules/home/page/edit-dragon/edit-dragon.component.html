@@ -6,21 +6,24 @@
       placeholder="Type the dragon name..."
       name="name"
       required
-      [(ngModel)]="selectedDragon.name"
+      [ngModel]="selectedDragon.name"
+      ngModel
     />
     <input
       type="text"
       placeholder="Type the dragon type..."
       name="type"
       required
-      [(ngModel)]="selectedDragon.type"
+      [ngModel]="selectedDragon.type"
+      ngModel
     />
     <textarea
       type="text"
       placeholder="Type the dragon histories..."
       name="histories"
       required
-      [(ngModel)]="selectedDragon.histories"
+      [ngModel]="selectedDragon.histories"
+      ngModel
     >
     </textarea>
     <button (click)="cancelEdit()" type="button" class="btn btn-light">

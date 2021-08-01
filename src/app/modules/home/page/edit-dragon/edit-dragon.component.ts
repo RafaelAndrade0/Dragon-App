@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { DragonService } from 'src/app/data/service/dragon.service';
 import { Dragon } from 'src/app/data/types/dragon';
 
@@ -18,13 +18,21 @@ export class EditDragonComponent implements OnInit {
     createdAt: new Date(),
   };
 
+  @Output() editDragonEmitter = new EventEmitter<Dragon>();
+
   ngOnInit(): void {
-    this.dragonService.$selectedDragon.subscribe(
-      (dragon) => (this.selectedDragon = dragon)
-    );
+    this.dragonService.$selectedDragon.subscribe((dragon) => {
+      this.selectedDragon = dragon;
+    });
   }
 
-  editDragon(f: Dragon) {}
+  editDragon(editedDragon: Dragon) {
+    this.editDragonEmitter.emit({
+      ...editedDragon,
+      id: this.selectedDragon.id,
+      createdAt: this.selectedDragon.createdAt,
+    });
+  }
 
   cancelEdit() {
     this.dragonService.setEditDragon(false);

@@ -34,6 +34,10 @@ export class DragonService {
     return this.http.post<Dragon>('/dragon', dragon);
   }
 
+  editDragon(dragon: Dragon): Observable<Dragon> {
+    return this.http.put<Dragon>(`dragon/${dragon.id}`, dragon);
+  }
+
   setSelectedDragon(dragon: Dragon) {
     console.log(dragon);
     this._selectedDragon.next(dragon);

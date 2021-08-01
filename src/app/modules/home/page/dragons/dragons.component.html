@@ -6,7 +6,7 @@
 
 <ng-container *ngIf="$showEditDragon | async as showEditDragon">
   <div *ngIf="showEditDragon">
-    <app-edit-dragon></app-edit-dragon>
+    <app-edit-dragon (editDragonEmitter)="editDragon($event)"></app-edit-dragon>
   </div>
 </ng-container>
 

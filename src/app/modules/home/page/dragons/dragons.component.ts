@@ -27,4 +27,25 @@ export class DragonsComponent implements OnInit {
   addDragon() {
     this.router.navigate(['../add-dragon'], { relativeTo: this.route });
   }
+
+  editDragon(editedDragon: Dragon) {
+    this.dragonService.editDragon(editedDragon).subscribe(
+      (dragon) => {
+        console.log(dragon);
+        this.editDragonOptimisticUpdate(editedDragon);
+        this.dragonService.setEditDragon(false);
+      },
+      (error) => {
+        alert(error);
+        console.log(error);
+      }
+    );
+  }
+
+  editDragonOptimisticUpdate(editedDragon: Dragon) {
+    const index = this.dragons.findIndex(
+      (dragon) => dragon.id === editedDragon.id
+    );
+    this.dragons[index] = editedDragon;
+  }
 }

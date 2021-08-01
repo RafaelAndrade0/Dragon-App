@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { DragonService } from 'src/app/data/service/dragon.service';
 import { Dragon } from 'src/app/data/types/dragon';
 
@@ -12,7 +13,8 @@ export class DragonsComponent implements OnInit {
   constructor(
     private dragonService: DragonService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toastr: ToastrService
   ) {
     this.dragonService
       .listDragons()
@@ -36,8 +38,7 @@ export class DragonsComponent implements OnInit {
         this.dragonService.setEditDragon(false);
       },
       (error) => {
-        alert(error);
-        console.log(error);
+        this.toastr.error(error.message, '😕 Oooppps...!');
       }
     );
   }

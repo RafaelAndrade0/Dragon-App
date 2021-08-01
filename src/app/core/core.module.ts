@@ -1,8 +1,12 @@
 import { LOCALE_ID, NgModule, Optional, SkipSelf } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
+
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BaseUrlInterceptor } from './interceptor/base-url.interceptor';
 import { throwIfAlreadyLoaded } from './guard/module-import.guard';
+
+registerLocaleData(localePt);
 
 @NgModule({
   declarations: [],
@@ -15,7 +19,7 @@ import { throwIfAlreadyLoaded } from './guard/module-import.guard';
     },
     {
       provide: LOCALE_ID,
-      useValue: 'pt',
+      useValue: 'pt-BR',
     },
   ],
 })

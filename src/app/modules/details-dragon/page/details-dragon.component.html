@@ -5,6 +5,7 @@
       <h1>{{ selectedDragon.name }}</h1>
       <p>{{ selectedDragon.histories }}</p>
       <span class="badge badge-primary">{{ selectedDragon.type }}</span>
+      <p><b>Created at:</b> {{ selectedDragon.createdAt | date }}</p>
     </div>
   </div>
 </ng-container>

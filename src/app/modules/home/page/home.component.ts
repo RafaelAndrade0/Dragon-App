@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DragonService } from 'src/app/data/service/dragon.service';
 
 @Component({
   selector: 'app-home',

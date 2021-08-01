@@ -50,7 +50,7 @@ export class DragonsComponent implements OnInit, OnDestroy {
 
   editDragon(editedDragon: Dragon) {
     this.dragonService.editDragon(editedDragon).subscribe(
-      (dragon) => {
+      (_) => {
         this.editDragonOptimisticUpdate(editedDragon);
         this.dragonService.setShowEditDragonForm(false);
         this.toastr.success('Dragão editado com sucesso!', 'Show! 😄');

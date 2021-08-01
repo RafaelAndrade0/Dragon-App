@@ -33,6 +33,10 @@ export class DragonService {
       );
   }
 
+  listDragon(id: string): Observable<Dragon> {
+    return this.http.get<Dragon>(`/dragon/${id}`);
+  }
+
   addDragon(dragon: Dragon): Observable<Dragon> {
     return this.http.post<Dragon>('/dragon', dragon);
   }

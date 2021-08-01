@@ -17,6 +17,7 @@ const routes: Routes = [
   },
   {
     path: 'add-dragon',
+    canActivate: [AuthGuard],
     loadChildren: () =>
       import('./modules/add-dragon/add-dragon.module').then(
         (m) => m.AddDragonModule
@@ -24,12 +25,18 @@ const routes: Routes = [
   },
   {
     path: 'details-dragon/:id',
+    canActivate: [AuthGuard],
     loadChildren: () =>
       import('./modules/details-dragon/details-dragon.module').then(
         (m) => m.DetailsDragonModule
       ),
   },
-  { path: 'about', loadChildren: () => import('./modules/about/about.module').then(m => m.AboutModule) },
+  {
+    path: 'about',
+    canActivate: [AuthGuard],
+    loadChildren: () =>
+      import('./modules/about/about.module').then((m) => m.AboutModule),
+  },
 ];
 
 @NgModule({

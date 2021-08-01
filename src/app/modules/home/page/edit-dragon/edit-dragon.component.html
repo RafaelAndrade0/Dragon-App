@@ -8,7 +8,14 @@
       required
       [ngModel]="selectedDragon.name"
       ngModel
+      #username="ngModel"
     />
+    <div
+      [hidden]="username.valid || username.pristine"
+      class="alert alert-danger"
+    >
+      Username is required
+    </div>
     <input
       type="text"
       placeholder="Type the dragon type..."
@@ -16,7 +23,11 @@
       required
       [ngModel]="selectedDragon.type"
       ngModel
+      #type="ngModel"
     />
+    <div [hidden]="type.valid || type.pristine" class="alert alert-danger">
+      Type is required
+    </div>
     <textarea
       type="text"
       placeholder="Type the dragon histories..."
@@ -24,11 +35,20 @@
       required
       [ngModel]="selectedDragon.histories"
       ngModel
+      #histories="ngModel"
     >
     </textarea>
+    <div
+      [hidden]="histories.valid || histories.pristine"
+      class="alert alert-danger"
+    >
+      Histories is required
+    </div>
     <button (click)="cancelEdit()" type="button" class="btn btn-light">
       Cancel
     </button>
-    <button type="submit" class="btn btn-primary">Edit</button>
+    <button [disabled]="!f.form.valid" type="submit" class="btn btn-primary">
+      Edit
+    </button>
   </form>
 </div>
